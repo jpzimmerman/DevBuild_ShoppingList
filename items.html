@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Items</title>
+        <script src="scripts/shoppingCartManager.js"></script>
+        <link href="styles/styles.css" rel='stylesheet'>
+    </head>
+    <body>
+        <header id="items-header">
+            
+        </header>
+        <table id= "product-table">
+            <tr>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div class="store-item-buttons">
+                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
+                            <button class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
+                            <button class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
+                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4">
+                            <button id="addToCartBtn">Add to Cart</button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div class="store-item-buttons">
+                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
+                            <button class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
+                            <button class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
+                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4">
+                            <button id="addToCartBtn">Add to Cart</button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div class="store-item-buttons">
+                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
+                            <button class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
+                            <button class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
+                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4">
+                            <button id="addToCartBtn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+            <select readonly="true" id="shopping-cart-textbox" class="shopping-cart-textbox"></textarea>
+            <tr>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div id="product4" class="store-item-buttons">
+                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4">
+                            <button id="addToCartBtn" onclick="addProduct()">Add to Cart</button>
+
+                        </div>
+                    </div>
+
+                </td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+        </table>
+    </body>
+</html>
