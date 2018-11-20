@@ -32,7 +32,6 @@ function BuildCartItems(){
         tmpSubtotal += shoppingCart[i].productSubtotal;
         var cartItem = document.createElement("option");
     }
-    tmpGrandTotal = 
 
     finalCost.subTotal = tmpSubtotal;
     finalCost.taxTotal = (tmpSubtotal * SALES_TAX_MI);
@@ -45,17 +44,12 @@ function UpdateTotalsDisplay() {
     document.getElementById("grand-total-display-field").innerText  = "$" + finalCost.grandTotal.toFixed(2);
 }
 
-function calculateSalesTax()
-{
-}
-
 function addProduct(caller, selectedProduct){
     var quantityValue = GetQuantityValueForNode(caller);
     if (quantityValue === 0) {
         alert ("Quantity value of item is at 0. Please add at least one of selected item.")
         return;
     }
-    //document.getElementById()
     selectedProduct.productSubtotal = selectedProduct.price * quantityValue;
     document.getElementById("shopping-cart-textbox").multiple=true;
     var cartItem = document.createElement("option");
@@ -70,7 +64,6 @@ function addProduct(caller, selectedProduct){
     document.getElementById("shopping-cart-textbox").options.add(cartItem);
     BuildCartItems();
     UpdateTotalsDisplay();
-
 }
 
 function IncrementQuantity(caller)
@@ -86,3 +79,10 @@ function DecrementQuantity(caller) {
     if (qtyBoxNode.value < 0) { qtyBoxNode.value = 0;}
 }
 
+function DisplayCheckoutInfo()
+{
+    alert("RECEIPT\n" + 
+            "Subtotal: $" + finalCost.subTotal.toFixed(2) + "\n" +
+            "Tax @ " + (SALES_TAX_MI * 100).toFixed(2) + "% : $" + finalCost.taxTotal.toFixed(2) + "\n" +
+            "Total: $" + finalCost.grandTotal.toFixed(2));
+}

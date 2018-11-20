@@ -16,7 +16,7 @@
                 <p id= "subtotal-display-label" class="total-display-label">Subtotal: </p><p id = "subtotal-display-field"class="total-display-field">$0.00</p><br>
                 <p id= "tax-display-label" class="total-display-label">Tax: </p><p id = "tax-display-field" class="total-display-field">$0.00</p><br>
                 <p id ="grand-total-display-label" class="total-display-label">Total: </p><p id = "grand-total-display-field" class="total-display-field">$0.00</p><br>
-                <button id="checkoutButton">Checkout</button>
+                <button id="checkoutButton" onclick="DisplayCheckoutInfo()">Checkout</button>
             </div>
         </div>
         <table id= "product-table">
@@ -168,9 +168,54 @@
                 </td>
             </tr>
             <tr>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>LEGO Starter Set</p>
+                            <p>$34.99</p>
+                            <img src= "images/lego-starter-set.jpg" class="store-item-image" title="Image of LEGO Starter Set" alt="Image of LEGO Starter Set">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Everything you need to start a lifelong creative adventure!</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'LEGO', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 34.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>  
+                </td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>Vintage Erector Set</p>
+                            <p>$49.99</p>
+                            <img src= "images/vintage-erector-set.jpg" class="store-item-image" title="Image of Starter Erector Set" alt="Image of Starter Erector Set">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Think of it as LEGO + physics...</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'ERCTR', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 49.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>  
+                </td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>DUNCAN Yo-Yo</p>
+                            <p>$2.99</p>
+                            <img src= "images/duncan-yo-yo.jpg" class="store-item-image" title="Image of Duncan Yo-Yo" alt="Image of Duncan Yo-Yo">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Simple, but elegant</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'DNCYOYO', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 2.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>                      
+                </td>
             </tr>
         </table>
     </body>
