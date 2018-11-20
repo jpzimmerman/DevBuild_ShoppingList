@@ -2,17 +2,23 @@
     width: 101%;
     height: 70px;
     background-color: lightblue;
-    margin: -10px -50px 50px -10px;
-
+    vertical-align: 70%;
+    text-align: center;
+    font-size: 48px;
+    font-family: sans-serif;
+    margin:-4% -50px 50px -10px;
 }
 
 .qtyUpButton{
+    width: 12%;
+    height: 12%;
     border-radius: 50%;
     vertical-align: top;
-
 }
 
 .qtyDownButton{
+    width: 12%;
+    height: 12%;
     border-radius: 50%;
     margin: -30px 0px 0px 150px;
     vertical-align: bottom;
@@ -24,16 +30,58 @@
     vertical-align: middle;
 }
 
-.shopping-cart-textbox {
+.shopping-cart-area{
+    display: block;
     float: right;
     width: 25%;
-    padding-bottom: 50%;
+    height: 10%;
+    padding-bottom: 10%;
     padding-right: 6%;
 }
 
+.shopping-cart-textbox {
+    float: right;
+    direction: ltr;
+    width: 25%;
+    height: 30%;
+    padding-bottom: 60%;
+    padding-right: 90%;
+}
+
+
+#shopping-cart-totals {
+    text-align: right;
+    width: 120%;
+    padding-bottom: 30%;
+    padding-right: 0%;
+}
+
+.total-display-label{
+    display: inline;
+    padding-left: 0%;
+    justify-content: left;
+}
+
+.total-display-field {
+    padding-left: 30%;
+    display: inline;
+    text-align: right;
+}
+
 .store-item{
-    width: 70%;
+    width: 95%;
     height: 100%;
+    padding-right: 0%;
+}
+
+.store-item-image{
+    width: 80%;
+    height: 80%;
+    transition: transform 0.3s;
+}
+
+.store-item-image:hover{
+    transform: scale(1.15);
 }
 
 .store-item-buttons{
@@ -48,8 +96,13 @@
     border-spacing: 0px;
 }
 
+body{
+    background-color: whitesmoke;
+}
+
 td {
-    width: 25%;
-    border: 1px dotted black;
+    width: 20%;
+    height: 10%;
+    border: 0.1px dotted black;
     text-align: center;
 }

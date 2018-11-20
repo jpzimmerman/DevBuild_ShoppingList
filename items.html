@@ -3,71 +3,169 @@
     <head>
         <title>Items</title>
         <script src="scripts/shoppingCartManager.js"></script>
+        <script type= "text/javascript" src="lib/jquery-3.3.1.js"></script>
         <link href="styles/styles.css" rel='stylesheet'>
     </head>
     <body>
         <header id="items-header">
-            
+            <p>Our Store</p>          
         </header>
+        <div class= "shopping-cart-area">
+            <select readonly="true" id="shopping-cart-textbox" class="shopping-cart-textbox"></select>
+            <div id= "shopping-cart-totals" class="shopping-cart-area">
+                <p id= "subtotal-display-label" class="total-display-label">Subtotal: </p><p id = "subtotal-display-field"class="total-display-field">$0.00</p><br>
+                <p id= "tax-display-label" class="total-display-label">Tax: </p><p id = "tax-display-field" class="total-display-field">$0.00</p><br>
+                <p id ="grand-total-display-label" class="total-display-label">Total: </p><p id = "grand-total-display-field" class="total-display-field">$0.00</p><br>
+                <button id="checkoutButton">Checkout</button>
+            </div>
+        </div>
         <table id= "product-table">
             <tr>
                 <td>
                     <div data-role="store-item" class="store-item">
-                        <div class="store-item-buttons">
-                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
-                            <button class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
-                            <button class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
-                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4">
-                            <button id="addToCartBtn">Add to Cart</button>
+                        <div>
+                            <p>Mattel&#0174; He-Man Action Figure</p>
+                            <p>$14.99</p>
+                            <img src= "images/he-man-action-figure.jpg" class="store-item-image" alt="Image of He-Man Action Figure" title= "Image of He-Man Action Figure">
+                            <button class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Rare Masters of the Universe Classic He-man Action Figure</p>
+                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'HE-MAN', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 14.99, productSubtotal: 0.00})">Add to Cart
                         </div>
                     </div>
                 </td>
                 <td>
                     <div data-role="store-item" class="store-item">
-                        <div class="store-item-buttons">
-                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
-                            <button class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
-                            <button class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
-                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4">
-                            <button id="addToCartBtn">Add to Cart</button>
+                        <div>
+                            <p>Vintage TONKA Truck</p>
+                            <p>$29.95</p>
+                            <img src= "images/vintage-tonka-truck.jpg" class="store-item-image" alt="Image of Tonka Truck" title= "Image of Tonka Truck">
+                            <button class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Classic Tonka dump truck</p>
+                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'TONKA', description: 'TONKA Truck',imageName: 'Image Name', quantity: 1,
+                                price: 29.95, productSubtotal: 0.00})">Add to Cart
                         </div>
                     </div>
                 </td>
                 <td>
                     <div data-role="store-item" class="store-item">
-                        <div class="store-item-buttons">
-                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
-                            <button class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
-                            <button class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
-                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4">
-                            <button id="addToCartBtn">Add to Cart</button>
+                        <div>
+                            <p>Spirograph</p>
+                            <p>$9.99</p>
+                            <img src= "images/spirograph.jpg" class="store-item-image" alt="Image of Spirograph geometry toy" title= "Image of Spirograph geometry toy">
+                            <button class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Spirograph geometry toy</p>
+                            Quantity: <input type="number" min="0" id= "qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'SPRGH', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 9.99, productSubtotal: 0.00})">Add to Cart
                         </div>
                     </div>
-
                 </td>
             </tr>
-            <select readonly="true" id="shopping-cart-textbox" class="shopping-cart-textbox"></textarea>
+            <tr>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>Mattel&#0174; ROCK 'EM SOCK 'EM ROBOTS Game</p>
+                            <p>$11.99</p>
+                            <img src= "images/RockemSockemRobotsGame.jpg" class="store-item-image" title="Image of Rock 'em Sock 'em Robots game" alt="Image of Rock 'em Sock 'em Robots game">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">The game has one key aim: be the first to knock your opponent’s block off!</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'ROBOTS', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 11.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>CREEPY CRAWLERS Nightmare Factory</p>
+                            <p>$59.99</p>
+                            <img src= "images/creepycrawlers.jpg" class="store-item-image" title="Image of Creepy Crawlers" alt="Image of Creepy Crawlers">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Getting your kid siblings to jump 15 feet out of nowhere never gets old...</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'CRPY', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 59.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>                    
+                </td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>Stretch Armstrong Action Figure</p>
+                            <p>$19.99</p>
+                            <img src= "images/stretch-armstrong-toy.jpg" class="store-item-image" title="Image of Stretch Armstrong action figure" alt="Image of Stretch Armstrong Action Figure">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">The original elastic strong man returns with the Stretch Armstrong Action Figure. Stretch his arms, legs and torso up to four times their original size. You can stretch him and tie him in knots, and he'll always go back to his original shape!</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'STRETCH', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 19.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>                       
+                </td>
+            </tr>
             <tr>
                 <td>
                     <div data-role="store-item" class="store-item">
-                        <div id="product4" class="store-item-buttons">
-                            <img src= "images/RockemSockemRobotsGame.jpg" alt="Image of Rock 'em Sock 'em Robots game"width="150px" height= "100px">
-                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)" width="50px" height="30px"><b>+</b></button>
-                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)" width="50px" height="30px"><b>-</b></button>
-                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4">
-                            <button id="addToCartBtn" onclick="addProduct()">Add to Cart</button>
-
+                        <div>
+                            <p>Neon Nintendo Switch Console</p>
+                            <p>$229.99</p>
+                            <img src= "images/nintendo-switch.jpg" class="store-item-image" title="Image of Nintendo Switch console" alt="Image of Nintendo Switch console">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Play anywhere (for between 3 and 8 hours, depending)</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'SWITCH', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 229.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
                         </div>
-                    </div>
-
+                    </div>                      
                 </td>
-                <td>5</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>Handheld Arcade Baseball Game</p>
+                            <p>$39.99</p>
+                            <img src= "images/arcade-baseball.jpg" class="store-item-image" title="Image of Arcade Baseball" alt="Image of Arcade Baseball">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">70s Classic, 1-2 players</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'BASE', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 39.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>                       
+                </td>
+                <td>
+                    <div data-role="store-item" class="store-item">
+                        <div>
+                            <p>HOT WHEELS Playset</p>
+                            <p>$24.99</p>
+                            <img src= "images/hot-wheels.jpg" class="store-item-image" title="Image of Hot Wheels playset" alt="Image of Hot Wheels playset">
+                            <button id="qtyUpButon" class="qtyUpButton" onclick="IncrementQuantity(this)"><b>+</b></button>
+                            <button id="qtyDownButton" class="qtyDownButton" onclick="DecrementQuantity(this)"><b>-</b></button>
+                            <p id= "product-description">Play, Trade, Collect!</p>
+                            Quantity: <input type="number" min="0" id="qtyInputField" class="qtyInputField" maxlength="4" value="0">
+                            <button id="addToCartBtn" onclick="addProduct(this, {name: 'HTWHLS', description: 'Description',imageName: 'Image Name', quantity: 1,
+                                price: 24.99, productSubtotal: 0.00})">Add to Cart
+                            </button>
+                        </div>
+                    </div>                       
+                </td>
             </tr>
             <tr>
                 <td>10</td>
