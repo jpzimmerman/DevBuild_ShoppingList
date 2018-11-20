@@ -59,7 +59,7 @@ function addProduct(caller, selectedProduct){
     cartItem.quantity = quantityValue;
     cartItem.price = selectedProduct.price;
     cartItem.productSubtotal = selectedProduct.productSubtotal;
-    cartItem.text = quantityValue + " " + selectedProduct.name + " @ " + selectedProduct.price.toString(10) +  '............' + selectedProduct.productSubtotal;
+    cartItem.text = quantityValue + " " + selectedProduct.name + " @ " + selectedProduct.price.toString(10) +  '............' + selectedProduct.productSubtotal.toFixed(2);
     shoppingCart.push(cartItem);
     document.getElementById("shopping-cart-textbox").options.add(cartItem);
     BuildCartItems();
@@ -81,7 +81,15 @@ function DecrementQuantity(caller) {
 
 function DisplayCheckoutInfo()
 {
-    alert("RECEIPT\n" + 
+    var cartString = "";
+    var cartElement = document.getElementById("shopping-cart-textbox").options;
+
+    for (var i = 0; i < cartElement.length; i++)
+    {
+        cartString += cartElement[i].text + "\n";
+    }
+
+    alert("RECEIPT\n" + cartString + "\n\n" + 
             "Subtotal: $" + finalCost.subTotal.toFixed(2) + "\n" +
             "Tax @ " + (SALES_TAX_MI * 100).toFixed(2) + "% : $" + finalCost.taxTotal.toFixed(2) + "\n" +
             "Total: $" + finalCost.grandTotal.toFixed(2));
